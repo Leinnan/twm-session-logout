@@ -1,7 +1,8 @@
 # twm-session-logout
 Session manager made for ligthweight WM
 
-![screen](http://i.imgur.com/GAq5svM.png "Screenshot")
+
+![screen](http://i.imgur.com/aYXn2HB.png "Screenshot")
 I made for my i3wm desktop. 
 
 Support for shortcuts:
