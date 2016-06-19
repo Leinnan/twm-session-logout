@@ -1,0 +1,2 @@
+g++ main.cpp -o twm-session-logout `pkg-config gtkmm-3.0 --cflags --libs` 
+./twm-session-logout
