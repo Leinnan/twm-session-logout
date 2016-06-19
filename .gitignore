@@ -3,6 +3,7 @@
 *.lo
 *.o
 *.obj
+twm-session-logout
 
 # Precompiled Headers
 *.gch
