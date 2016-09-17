@@ -32,5 +32,7 @@ twm-session-logout
 # My own
 /obj
 /bin
+/build
+.idea
 *layout
 

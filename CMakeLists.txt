@@ -18,7 +18,7 @@ link_directories(${GTKMM_LIBRARY_DIRS})
 
 # PROJECT FILES
 set(SOURCE_FILES
-    main.cpp)
+    main.cpp src/MainWindow.cpp src/MainWindow.h)
 
 
 add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
