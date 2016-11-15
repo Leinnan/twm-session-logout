@@ -46,6 +46,7 @@ private:
     Gtk::Button button_exit;
     int button_width = 130;
     int button_height = 60;
+    bool show_images = true;
 };
 
 

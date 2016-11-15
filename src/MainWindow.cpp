@@ -3,7 +3,6 @@
 //
 
 #include "MainWindow.h"
-#include <iostream>
 
 MainWindow::MainWindow()
 : main_container(Gtk::ORIENTATION_VERTICAL ,5),
@@ -21,7 +20,7 @@ MainWindow::MainWindow()
     this->set_position(Gtk::WIN_POS_CENTER);
     this->set_skip_taskbar_hint(true);
     this->set_keep_above(true);
-    this->set_decorated(false);
+    //this->set_decorated(false);
     this->signal_key_press_event().connect( sigc::mem_fun( *this, &MainWindow::onKeyPress ) );
 
     header_label.set_use_markup(true);
@@ -41,36 +40,63 @@ MainWindow::MainWindow()
     button_exit.set_margin_left(button_width*3+30);
     button_exit.signal_clicked().connect(sigc::mem_fun(this, &MainWindow::application_quit));
 
-    button_lock.set_image_from_icon_name("system-lock-screen",Gtk::ICON_SIZE_DIALOG);
-    button_lock.set_relief(Gtk::RELIEF_NONE);
-    button_lock.set_image_position(Gtk::POS_TOP);
-    button_lock.set_always_show_image();
+    
+    
+    if(this->show_images) {
+        button_lock.set_relief(Gtk::RELIEF_NONE);
+        button_lock.set_image_from_icon_name("system-lock-screen",Gtk::ICON_SIZE_DIALOG);
+        button_lock.set_image_position(Gtk::POS_TOP);
+        button_lock.set_always_show_image();
+        button_lock.set_size_request(button_width,button_height);
+    }
+    else{
+        button_lock.set_size_request(button_width,button_height/2);
+    }
     button_lock.set_tooltip_markup("Press <b>L</b> to lock");
-    button_lock.set_size_request(button_width,button_height);
     button_lock.signal_clicked().connect(sigc::mem_fun(this, &MainWindow::system_lock));
 
-    button_logout.set_image_from_icon_name("system-log-out",Gtk::ICON_SIZE_DIALOG);
-    button_logout.set_relief(Gtk::RELIEF_NONE);
-    button_logout.set_image_position(Gtk::POS_TOP);
-    button_logout.set_always_show_image();
+    
+    
+    if(this->show_images) {
+        button_logout.set_relief(Gtk::RELIEF_NONE);
+        button_logout.set_image_from_icon_name("system-log-out",Gtk::ICON_SIZE_DIALOG);
+        button_logout.set_image_position(Gtk::POS_TOP);
+        button_logout.set_always_show_image();
+        button_logout.set_size_request(button_width,button_height);
+    }
+    else{
+        button_logout.set_size_request(button_width,button_height/2);
+    }
     button_logout.set_tooltip_markup("Press <b>O</b> to logout");
-    button_logout.set_size_request(button_width,button_height);
     button_logout.signal_clicked().connect(sigc::mem_fun(this, &MainWindow::system_logout));
 
-    button_reset.set_image_from_icon_name("system-restart",Gtk::ICON_SIZE_DIALOG);
-    button_reset.set_relief(Gtk::RELIEF_NONE);
-    button_reset.set_image_position(Gtk::POS_TOP);
-    button_reset.set_always_show_image();
+    
+    
+    if(this->show_images) {
+        button_reset.set_relief(Gtk::RELIEF_NONE);
+        button_reset.set_image_from_icon_name("system-restart",Gtk::ICON_SIZE_DIALOG);
+        button_reset.set_image_position(Gtk::POS_TOP);
+        button_reset.set_always_show_image();
+        button_reset.set_size_request(button_width,button_height);
+    }
+    else{
+        button_reset.set_size_request(button_width,button_height/2);
+    }
     button_reset.set_tooltip_markup("Press <b>R</b> to restart");
-    button_reset.set_size_request(button_width,button_height);
     button_reset.signal_clicked().connect(sigc::mem_fun(this, &MainWindow::system_reset));
 
-    button_shutdown.set_image_from_icon_name("system-shutdown",Gtk::ICON_SIZE_DIALOG);
-    button_shutdown.set_relief(Gtk::RELIEF_NONE);
-    button_shutdown.set_image_position(Gtk::POS_TOP);
-    button_shutdown.set_always_show_image();
+    
+    if(this->show_images) {
+        button_shutdown.set_relief(Gtk::RELIEF_NONE);
+        button_shutdown.set_image_from_icon_name("system-shutdown",Gtk::ICON_SIZE_DIALOG);
+        button_shutdown.set_image_position(Gtk::POS_TOP);
+        button_shutdown.set_always_show_image();
+        button_shutdown.set_size_request(button_width,button_height);
+    }
+    else{
+        button_shutdown.set_size_request(button_width,button_height/2);
+    }
     button_shutdown.set_tooltip_markup("Press <b>S</b> to shutdown");
-    button_shutdown.set_size_request(button_width,button_height);
     button_shutdown.signal_clicked().connect(sigc::mem_fun(this, &MainWindow::system_shutdown));
 
 
@@ -79,7 +105,6 @@ MainWindow::MainWindow()
 
 
 bool MainWindow::onKeyPress(GdkEventKey* event) {
-    std::cout << event->keyval << ' ' << event->hardware_keycode << ' ' << event->state << std::endl;
 
     switch(event->keyval){
         case 76:
