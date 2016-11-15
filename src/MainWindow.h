@@ -48,7 +48,8 @@ private:
     Gtk::Button button_exit;
     int button_width = 130;
     int button_height = 60;
-    bool show_images = true;
+    bool show_images = false;
+	bool title_visible = false;
     std::string lock_command = "i3lock -c 2a2a2a -f";
 };
 

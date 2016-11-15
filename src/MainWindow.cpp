@@ -26,7 +26,11 @@ MainWindow::MainWindow()
     header_label.set_use_markup(true);
 
     this->add(main_container);
-    main_container.pack_start(header_label);
+	
+	if(title_visible)
+    	main_container.pack_start(header_label);
+	
+	
     main_container.pack_start(button_container);
     main_container.pack_start(button_exit);
 
@@ -50,7 +54,7 @@ MainWindow::MainWindow()
         button_lock.set_size_request(button_width,button_height);
     }
     else{
-        button_lock.set_size_request(button_width,button_height/2);
+        button_lock.set_size_request(button_width,button_height/1.5);
     }
     button_lock.set_tooltip_markup("Press <b>L</b> to lock");
     button_lock.signal_clicked().connect(sigc::mem_fun(this, &MainWindow::system_lock));
@@ -65,7 +69,7 @@ MainWindow::MainWindow()
         button_logout.set_size_request(button_width,button_height);
     }
     else{
-        button_logout.set_size_request(button_width,button_height/2);
+        button_logout.set_size_request(button_width,button_height/1.5);
     }
     button_logout.set_tooltip_markup("Press <b>O</b> to logout");
     button_logout.signal_clicked().connect(sigc::mem_fun(this, &MainWindow::system_logout));
@@ -80,7 +84,7 @@ MainWindow::MainWindow()
         button_reset.set_size_request(button_width,button_height);
     }
     else{
-        button_reset.set_size_request(button_width,button_height/2);
+        button_reset.set_size_request(button_width,button_height/1.5);
     }
     button_reset.set_tooltip_markup("Press <b>R</b> to restart");
     button_reset.signal_clicked().connect(sigc::mem_fun(this, &MainWindow::system_reset));
@@ -94,7 +98,7 @@ MainWindow::MainWindow()
         button_shutdown.set_size_request(button_width,button_height);
     }
     else{
-        button_shutdown.set_size_request(button_width,button_height/2);
+        button_shutdown.set_size_request(button_width,button_height/1.5);
     }
     button_shutdown.set_tooltip_markup("Press <b>S</b> to shutdown");
     button_shutdown.signal_clicked().connect(sigc::mem_fun(this, &MainWindow::system_shutdown));
