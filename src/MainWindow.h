@@ -5,6 +5,7 @@
 #ifndef TWM_SESSION_LOGOUT_MAINWINDOW_H
 #define TWM_SESSION_LOGOUT_MAINWINDOW_H
 #include <gtkmm.h>
+#include <string>
 #include <stdlib.h>
 
 
@@ -17,7 +18,7 @@ public:
         Gtk::Main::quit();
     };
     void system_lock() {
-        popen("i3lock -c 2a2a2a -f","w");
+        popen(lock_command.c_str(),"w");
         application_quit();
     };
     void system_logout() {
@@ -32,6 +33,7 @@ public:
         system("systemctl poweroff");
         application_quit();
     };
+    inline void setLockCommand(std::string p_new_command){ lock_command = p_new_command;}
 private:
     Gtk::Box main_container;
     Gtk::Box button_container;
@@ -47,6 +49,7 @@ private:
     int button_width = 130;
     int button_height = 60;
     bool show_images = true;
+    std::string lock_command = "i3lock -c 2a2a2a -f";
 };
 
 
