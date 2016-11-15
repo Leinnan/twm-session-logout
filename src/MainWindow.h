@@ -38,14 +38,13 @@ private:
     Gtk::Box main_container;
     Gtk::Box button_container;
 
-
-    Gtk::Label header_label;
-
-    Gtk::Button button_lock;
+	Gtk::Button button_lock;
     Gtk::Button button_logout;
     Gtk::Button button_reset;
     Gtk::Button button_shutdown;
     Gtk::Button button_exit;
+    Gtk::Label header_label;
+	
     int button_width = 130;
     int button_height = 60;
     bool show_images = false;
