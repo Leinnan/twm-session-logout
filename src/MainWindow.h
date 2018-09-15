@@ -15,7 +15,7 @@ public:
     ~MainWindow() {};
     bool onKeyPress(GdkEventKey*);
     void application_quit() {
-        Gtk::Main::quit();
+        get_application()->quit();
     };
     void system_lock() {
         popen(lock_command.c_str(),"w");
@@ -47,7 +47,7 @@ private:
 	
     int button_width = 130;
     int button_height = 60;
-    bool show_images = false;
+    bool show_images = true;
 	bool title_visible = false;
     std::string lock_command = "i3lock -c 2a2a2a -f";
 };
