@@ -1,5 +1,5 @@
 #include <gtkmm.h>
-#include "src/MainWindow.h"
+#include "MainWindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,6 +10,5 @@ int main(int argc, char *argv[])
       "org.leinnan.twmsesionlogout");
     MainWindow window;
 
-	
     return app->run(window);
 }
